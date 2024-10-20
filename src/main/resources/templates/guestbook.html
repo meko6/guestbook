@@ -32,7 +32,7 @@
 								<span class="fas fa-times"></span>
 							</button>
 						</form>
-						<h4 th:text="${index} + '. ' + ${entry.name}" class="card-title">1. Posting</h4>
+						<h4 th:text="${index} + '. ' + ${entry.name}" th:style="'color:' + ${entry.color}" class="card-title">1. Posting</h4>
 					</div>
 					<div class="card-body">
 						<blockquote class="entry-text" th:text="${entry.text}"></blockquote>
@@ -50,6 +50,8 @@
 				<label for="name" th:text="#{guestbook.form.name}">Name</label><br /> 
 				<input class="form-control" type="text" th:field="*{name}" th:errorclass="is-invalid" required="required" />
 				<div th:if="${#fields.hasErrors('name')}" class="invalid-feedback" th:text="#{guestbook.form.name.required}">Please provide a name.</div> 
+				<label for="color" th:text="#{guestbook.form.color}">Color</label><br /> 
+				<input type="color" th:field="*{color}" value="#FFFFFF" required="required"/><br/>
 			</div>
 			<div class="form-group">
 				<label for="text" th:text="#{guestbook.form.text}">Text</label><br /> 
